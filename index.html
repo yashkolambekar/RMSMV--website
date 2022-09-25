@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap"
       rel="stylesheet"
     />
     <title>RMSMV</title>
@@ -19,33 +19,151 @@
         }
 
         body{
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            font-weight: 500;
+            max-width: 100%;
+            padding: 20px;
+        }
+
+        #div1{
             width: 100%;
             height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-family: "Poppins", sans-serif;
-            font-weight: 400;
-            font-size: 18px;
-            font-weight: 500;
             text-align:center;
+            position: relative;
         }
 
-        #text2{
+        #div2{
+            width: 100%;
+            max-width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            text-align:left;
+            position: relative;
+            text-overflow: none;
+        }
+
+        #text2, #text2-1{
             opacity: 0;
             transition: 0.5s ease;
         }
+
+        #text2-1{
+            position: absolute;
+            bottom: 20px;
+            font-size: 10px;
+        }
+
+        #text3{
+            font-size: 50px;
+            font-weight: 900;
+        }
+
+        #div2{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            text-align:left;
+            position: relative;
+            text-overflow: none;
+        }
+
+        #div3{
+            font-size: 15px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            text-align:justify;
+            position: relative;
+            text-overflow: none;
+        }
+
+        footer{
+            margin-top: 50px;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-size: 10px;
+            color: white;
+            font-weight: 500;
+            max-width: 100%;
+            padding: 10px;
+            background-color: rgb(19, 19, 19);
+        }
+
+        footer a{
+            color: rgb(255, 111, 0);
+            text-decoration: none;
+        }
+
+        #div2, #div3, footer{
+            display: none;
+        }
+
     </style>
 </head>
 <body onload="start()">
-    <p id="text1">You are standing in front of the realest project in the room</p>
-    <br/>
+    <div id="div1">
+    <p id="text1">You are standing in front of the realest project in the room.</p><br>
     <p id="text2">Not copied from internet, proudly!</p>
+    <p id="text2-1">Read more</p>
+    </div>
+    <div id="div2">
+    <p id="text3">RMSMV</p>
+    <p id="text4">Realtime Momentary Signals using Multivibrators</p>
+    </div>
+    <div id="div3">
+        <h2>Introduction</h2>
+        <p>In metropolitan life, time is of utmost importance, every second is counted and every minute is valuable. Yet, there is one interesting contrast that we can observe almost everywhere in the city. Traffic lights are being utilised inefficiently, in fact in terrible ways. A long queue of cars have to wait for the light to turn green even when there is no traffic in the crossing, on the intersected roads. People have to waste their time every single day because of such not so “realtime” traffic signals.<br/><br/>
+            To solve this problem, we made a system that controls the traffic lights based on the real time traffic and makes sure that minimum time of all the parties is wasted waiting for the light to turn green.</p>
+        <br><br><br>
+        <h2>Experimental</h2>
+        <br>
+        <img src="RMSMV block 1.png" alt="">
+        <br>
+        <p>The presented model consists of two cross cutting roads which depicts a junction of roads commonly found in cities. To control the traffic on the roads, we have 2 traffic signals in perpendicular directions. Until this, everything is like the traditional traffic lights that we see on the roads everyday. In addition to this we have fit LDR sensors which will sense the traffic on the individual roads by the shadows of the car and the signals from these sensors will be sent to the motherboard and there the signals from all the LDRs will be processed to give out appropriate signals to ensure an optimal flow of traffic.</p>
+        <br><br>
+        <p><b>Clock</b>: Clock is an astable multivibrator which controls the time duration of the signals, it is variable.</p>
+        <p><b>LDRs</b>: LDRs are fit on roads as a sensor to provide information about the presence of cars on the roads.</p>
+        <p><b>Logic</b>: Logic or the motherboard consists of various gates and other ICs which decide the appropriate signals.</p>
+        <p><b>Signals</b>: One signal consists of 2 lights, red indicating the cars to stop and green indicating the cars to move.</p>
+        <br>
+        <img src="rmsmv circuit 2.1.png" alt="">
+        <br>
+        <p>Let’s understand how the logic works, please refer to circuit diagram for better understanding.</p>
+        <p>Firstly, the signals from the clock or the clock pulse from (1) goes to the OR gate (6) which further goes to our signals. One of the signals has a NOT gate in series which means when one signal is ON the other will be OFF. So this switching of signals will happen if no vehicles are there on the roads.</p>
+        <p>If a vehicle comes on a road and triggers the first LDR (2), it will send a trigger to the Monostable Multivibrator (4) which will send a high voltage to the XOR gate (8) which further transmits it to OR gate (6) hence making the Traffic Signal high for a continuous period of time, allowing the cars on that road to move.</p>
+        <p>Now if a vehicle is sensed on the other road by the second LDR (3), it triggers the Monostable Multivibrator (5) which sends a long pulse to a NOT gate which sends a low signal to the OR gate(9), it makes the output low which turns off the Clock (1) hence making the output of OR gate (6) low which makes the Traffic Signal low, allowing the traffic on that particular road to move.</p>
+        <p>Now the last possibility is traffic arrives on both the signals, in that case we don’t want to be partial towards any one side and the signals should keep switching like normal. So when both the LDRs sense the traffic, both the Monostable multivibrators are triggered, hence enabling both the gates of XOR gate (8) which makes the output of XOR gate low and no signal is transmitted ahead, a positive signal is also sent to one of the inputs of OR gate (9) hence keeping the clock running and the signals switch normally.</p>
+        <br>
+        <p>Observation Table</p>
+        <img src="Screenshot 2022-09-25 204648.png" alt="">
+    </div>
+<footer id="footer">
+    <p>Developed by <a href="http://bit.ly/classicaf">Yash Kolambekar</a></p>
+</footer>
 </body>
+
 <script>
     function start(){
-        setTimeout(function(){document.getElementById("text2").style.opacity = 1;},3000);
-}
+        setTimeout(function(){document.getElementById("text2").style.opacity = 1;},2500);
+        setTimeout(function(){document.getElementById("text2-1").style.opacity = 1;},3500);
+        setTimeout(function(){document.getElementById("div2").style.display = "flex";},4000);
+        setTimeout(function(){document.getElementById("div3").style.display = "flex";},4000);
+        setTimeout(function(){document.getElementById("footer").style.display = "block";},4000);}
 </script>
 </html>
