@@ -97,7 +97,7 @@
             width: 100%;
             font-family: "Poppins", sans-serif;
             font-weight: 400;
-            font-size: 10px;
+            font-size: 13px;
             color: white;
             font-weight: 500;
             max-width: 100%;
@@ -146,7 +146,7 @@
         <br><br><br>
         <h2>Experimental</h2>
         <br>
-        <img src="RMSMV block 1.png" alt="">
+        <img src="RMSMV block 1-min.png" alt="">
         <br>
         <p>The presented model consists of two cross cutting roads which depicts a junction of roads commonly found in cities. To control the traffic on the roads, we have 2 traffic signals in perpendicular directions. Until this, everything is like the traditional traffic lights that we see on the roads everyday. In addition to this we have fit LDR sensors which will sense the traffic on the individual roads by the shadows of the car and the signals from these sensors will be sent to the motherboard and there the signals from all the LDRs will be processed to give out appropriate signals to ensure an optimal flow of traffic.</p>
         <br><br>
@@ -155,7 +155,7 @@
         <p><b>Logic</b>: Logic or the motherboard consists of various gates and other ICs which decide the appropriate signals.</p>
         <p><b>Signals</b>: One signal consists of 2 lights, red indicating the cars to stop and green indicating the cars to move.</p>
         <br>
-        <img src="rmsmv circuit 2.1.png" alt="">
+        <img src="rmsmv circuit 2.1-min.png" alt="">
         <br>
         <p>Let’s understand how the logic works, please refer to circuit diagram for better understanding.</p>
         <p>Firstly, the signals from the clock or the clock pulse from (1) goes to the OR gate (6) which further goes to our signals. One of the signals has a NOT gate in series which means when one signal is ON the other will be OFF. So this switching of signals will happen if no vehicles are there on the roads.</p>
@@ -164,10 +164,14 @@
         <p>Now the last possibility is traffic arrives on both the signals, in that case we don’t want to be partial towards any one side and the signals should keep switching like normal. So when both the LDRs sense the traffic, both the Monostable multivibrators are triggered, hence enabling both the gates of XOR gate (8) which makes the output of XOR gate low and no signal is transmitted ahead, a positive signal is also sent to one of the inputs of OR gate (9) hence keeping the clock running and the signals switch normally.</p>
         <br>
         <p>Observation Table</p>
-        <img src="Screenshot 2022-09-25 204648.png" alt="">
+        <img src="Screenshot 2022-09-25 204648-min.png" alt="">
+        <br>
+        <h2>The motherboard</h2>
+        <img src="rmsmv pcb front-min.jpg" alt="">
+        <img src="rmsmv pcb back MIN.png" alt="">
     </div>
 <footer id="footer">
-    <p>Developed by <a href="http://bit.ly/classicaf">Yash Kolambekar</a></p>
+    <p>Site developed by <a href="http://bit.ly/classicaf">Yash Kolambekar</a></p>
 </footer>
 </body>
 
