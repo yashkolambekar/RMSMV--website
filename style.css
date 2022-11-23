@@ -1,9 +1,4 @@
 
-
-
-
-
-
 *{
     padding: 0;
     margin: 0;
@@ -18,11 +13,18 @@
     --bhagwa: rgb(255,69,0);
 }
 
+p, h1, h2, h3, h4 ,h5{
+    color: var(--black);
+}
+
 body{
     font-family: "Poppins", sans-serif;
     background-color: var(--color-3);
 }
 
+img{
+    transition: 1s ease;
+}
 
 .fullpage{
     min-height: 100vh;
@@ -130,6 +132,13 @@ body{
     left: -90px !important;
 }
 
+#manav-img{
+    height: 300px !important;
+    width: auto !important;
+    top: 0px !important;
+    left: 0px !important;
+}
+
 #div3{
     margin-top: 150px;
 }
@@ -160,6 +169,7 @@ body{
     filter: grayscale(1);
 }
 
+
 #footer {
     margin-top:100px;
     font-size: 15px;
@@ -172,6 +182,10 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#footer p{
+    color: var(--white);
 }
 
 #footer a{
