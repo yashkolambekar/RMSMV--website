@@ -132,7 +132,7 @@ img{
     left: -90px !important;
 }
 
-#manav-img{
+#manav-img, #mrunal-img, #shreyas-img {
     height: 300px !important;
     width: auto !important;
     top: 0px !important;
