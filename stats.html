@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+
+       function update(){ var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://api.countapi.xyz/get/rmsmv/views");
+    // xhr.open("GET", "https://api.countapi.xyz/hit/rmsmv.netlify.app/awesomeclick");
+        xhr.responseType = "json";
+        xhr.onload = function() {
+        document.getElementById("views-span").innerHTML = `${this.response.value}`;
+    //     alert(`This button has been clicked ${this.response.value} times!`);
+    }
+    xhr.send();
+
+    var yhr = new XMLHttpRequest();
+    yhr.open("GET", "https://api.countapi.xyz/get/rmsmv/pdf");
+    // xhr.open("GET", "https://api.countapi.xyz/hit/rmsmv.netlify.app/awesomeclick");
+        yhr.responseType = "json";
+        yhr.onload = function() {
+        document.getElementById("pdf-views-span").innerHTML = `${this.response.value}`;
+    //     alert(`This button has been clicked ${this.response.value} times!`);
+    }
+    yhr.send();
+       }
+      
+       
+    function subone(){
+        old = parseInt(document.getElementById("views-span").innerHTML);
+        val = old - 1;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", `https://api.countapi.xyz/set/rmsmv/views?value=${val}`);
+        xhr.responseType = "json";
+        xhr.onload = function() {
+        document.getElementById("views-span").innerHTML = `${this.response.value}`;
+    }
+    xhr.send();
+    }
+
+    function addone(){
+        old = parseInt(document.getElementById("views-span").innerHTML);
+        val = old + 1;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", `https://api.countapi.xyz/set/rmsmv/views?value=${val}`);
+        xhr.responseType = "json";
+        xhr.onload = function() {
+        document.getElementById("views-span").innerHTML = `${this.response.value}`;
+    }
+    xhr.send();
+    }
+
+    function subonep(){
+        old = parseInt(document.getElementById("pdf-views-span").innerHTML);
+        val = old - 1;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", `https://api.countapi.xyz/set/rmsmv/pdf?value=${val}`);
+        xhr.responseType = "json";
+        xhr.onload = function() {
+        document.getElementById("pdf-views-span").innerHTML = `${this.response.value}`;
+    }
+    xhr.send();
+    }
+
+    function addonep(){
+        old = parseInt(document.getElementById("pdf-views-span").innerHTML);
+        val = old + 1;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", `https://api.countapi.xyz/set/rmsmv/pdf?value=${val}`);
+        xhr.responseType = "json";
+        xhr.onload = function() {
+        document.getElementById("pdf-views-span").innerHTML = `${this.response.value}`;
+    }
+    xhr.send();
+    }
+    </script>
+</head>
+<body onload="update()">
+    <div id="div2">
+        <div class="text-box">
+            <h2>Website Views: <span id='views-span'></span></h2>
+            <div onclick="subone()" class="halfbtn">Sub 1</div>
+            <div onclick="addone()" class="halfbtn">Add 1</div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <h2>PDF Views: <span id='pdf-views-span'></span></h2>
+            <div onclick="subonep()" class="halfbtn">Sub 1</div>
+            <div onclick="addonep()" class="halfbtn">Add 1</div>
+        </div>
+    </div>
+</body>
+</html>

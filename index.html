@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js"></script>
+    <title>RMSMV</title>
+  </head>
+  <body onload="views()">
+    <div class="div-type-1" id="div1">
+        <img src="media/project-1-alpha.png" alt="" id="img-1">
+      <div id="div-1-1">
+        <h1>RMSMV</h1>
+        <h2>Realtime Momentary Signals using MultiVibrators</h2>
+      </div>
+    </div>
+    <div class="div-type-1" id="div2">
+        <div id="div-2-1">
+            <h2>Meet the RMSMV</h2>
+        </div>
+        <div id="card-container">
+            <div class="card">
+                <img src="media/yash1.jpg" alt="">
+                <div class="card-cover"></div>
+                <div class="card-text-cont">
+                    <h2>R</h2>
+                    <p>Yash</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="media/manav1.jpeg" alt="">
+                <div class="card-cover"></div>
+                <div class="card-text-cont">
+                    <h2>M</h2>
+                    <p>Manav</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="media/shreyas.png" alt="">
+                <div class="card-cover"></div>
+                <div class="card-text-cont">
+                    <h2>S</h2>
+                    <p>Shreyas</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="media/mrunal1.jpeg" alt="">
+                <div class="card-cover"></div>
+                <div class="card-text-cont">
+                    <h2>M</h2>
+                    <p>Mrunal</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="media/vighnesh.jpeg" alt="">
+                <div class="card-cover"></div>
+                <div class="card-text-cont">
+                    <h2>V</h2>
+                    <p>Vighnesh</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="div-type-1" id="div-3">
+        <div class="text-box">
+            <h2>Introduction</h2>
+            <p>In metropolitan life, time is of utmost importance, every second is counted and every minute is valuable. Yet, there is one interesting contrast that we can observe almost everywhere in the city. Traffic lights are being utilised inefficiently, in fact in terrible ways. A long queue of cars have to wait for the light to turn green even when there is no traffic in the crossing, on the intersected roads. People have to waste their time every single day because of such not so “realtime” traffic signals.
+                <br><br>
+                To solve this problem, we made a system that controls the traffic lights based on the real time traffic and makes sure that minimum time of all the parties is wasted waiting for the light to turn green.
+            </p>
+        </div>
+        <div class="text-box">
+            <div class="readmorediv"><p>Read more</p></div>
+            <img src="media/RMSMV block 1-min.png" alt="">
+            <p>The presented model consists of two cross cutting roads which depicts a junction of roads commonly found in cities. To control the traffic on the roads, we have 2 traffic signals in perpendicular directions. Until this, everything is like the traditional traffic lights that we see on the roads everyday. In addition to this we have fit LDR sensors which will sense the traffic on the individual roads by the shadows of the car and the signals from these sensors will be sent to the motherboard and there the signals from all the LDRs will be processed to give out appropriate signals to ensure an optimal flow of traffic.
+                <br><br>
+                Clock: Clock is an astable multivibrator which controls the time duration of the signals, it is variable.
+                <br><br>
+                LDRs: LDRs are fit on roads as a sensor to provide information about the presence of cars on the roads.
+                <br><br>
+                Logic: Logic or the motherboard consists of various gates and other ICs which decide the appropriate signals.
+                <br><br>
+                Signals: One signal consists of 2 lights, red indicating the cars to stop and green indicating the cars to move.
+            </p>
+        </div>
+        <div class="text-box">
+            <div class="readmorediv"><p>Read more</p></div>
+            <img src="media/rmsmv circuit 2.1-min.png" alt="">
+            <p>
+                Let’s understand how the logic works, please refer to circuit diagram for better understanding.
+                <br><br>
+                Firstly, the signals from the clock or the clock pulse from (1) goes to the OR gate (6) which further goes to our signals. One of the signals has a NOT gate in series which means when one signal is ON the other will be OFF. So this switching of signals will happen if no vehicles are there on the roads.
+                <br><br>
+                If a vehicle comes on a road and triggers the first LDR (2), it will send a trigger to the Monostable Multivibrator (4) which will send a high voltage to the XOR gate (8) which further transmits it to OR gate (6) hence making the Traffic Signal high for a continuous period of time, allowing the cars on that road to move.
+                <br><br>
+                Now if a vehicle is sensed on the other road by the second LDR (3), it triggers the Monostable Multivibrator (5) which sends a long pulse to a NOT gate which sends a low signal to the OR gate(9), it makes the output low which turns off the Clock (1) hence making the output of OR gate (6) low which makes the Traffic Signal low, allowing the traffic on that particular road to move.
+                <br><br>
+                Now the last possibility is traffic arrives on both the signals, in that case we don’t want to be partial towards any one side and the signals should keep switching like normal. So when both the LDRs sense the traffic, both the Monostable multivibrators are triggered, hence enabling both the gates of XOR gate (8) which makes the output of XOR gate low and no signal is transmitted ahead, a positive signal is also sent to one of the inputs of OR gate (9) hence keeping the clock running and the signals switch normally.
+            </p>
+            <img src="media/Screenshot 2022-09-25 204648-min.png" alt="">
+        </div>
+        <div class="text-box">
+            <h2>The motherboard</h2>
+            <img src="media/rmsmv pcb front-min alpha.png" alt="">
+            <img src="media/rmsmv pcb back MIN.png" alt="">
+        </div>
+
+        <button id="pdf-btn" onclick="viewpdf()"><h2>View Project Report PDF</h2></button>
+    </div>
+
+    <div id="footer">
+        <p>Webpage developed by <a href="https://classicaf.netlify.app" target="_blank">Yash Kolambekar</a></p>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
