@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="style.css">
     <script>
 
+function hide() {
+
+            document.getElementById('text-box-1').style.display = "none";
+            var password = prompt("Please enter your password:");
+        if (password == 'harekrishna') {
+            document.getElementById('text-box-1').style.display = "block";
+      
+}
+}
+
        function update(){ var xhr = new XMLHttpRequest();
         xhr.open("GET", "https://api.countapi.xyz/get/rmsmv/views");
     // xhr.open("GET", "https://api.countapi.xyz/hit/rmsmv.netlify.app/awesomeclick");
@@ -79,9 +89,9 @@
     }
     </script>
 </head>
-<body onload="update()">
+<body onload="update(), hide()">
     <div id="div2">
-        <div class="text-box">
+        <div class="text-box" id="text-box-1">
             <h2>Website Views: <span id='views-span'></span></h2>
             <div onclick="subone()" class="halfbtn">Sub 1</div>
             <div onclick="addone()" class="halfbtn">Add 1</div>
@@ -94,6 +104,13 @@
             <h2>PDF Views: <span id='pdf-views-span'></span></h2>
             <div onclick="subonep()" class="halfbtn">Sub 1</div>
             <div onclick="addonep()" class="halfbtn">Add 1</div>
+
+            <br>
+            <br>
+            <br>
+
+            <div onclick="update()" class="halfbtn">Update</div>
+
         </div>
     </div>
 </body>
